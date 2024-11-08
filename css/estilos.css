@@ -1,0 +1,221 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Fondo de la página con degradado animado */
+body {
+    background: linear-gradient(120deg, #3a1c71, #d76d77, #ffaf7b);
+    background-size: 200% 200%;
+    animation: gradientBackground 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+/* Encabezado */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    animation: slideInLeft 1.2s ease forwards;
+}
+
+/* Sección principal */
+#seccion {
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5px);
+    animation: slideInUp 1s ease forwards;
+}
+
+/* Fieldset */
+fieldset {
+    border: 2px solid #ffffff50;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: #fff;
+    background: linear-gradient(145deg, #6a11cb, #2575fc);
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+legend {
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(145deg, #0093E9, #80D0C7);
+    color: #fff;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+    animation: buttonBounce 0.5s ease infinite alternate;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(145deg, #80D0C7, #0093E9);
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1rem;
+}
+
+th {
+    background: rgba(0, 0, 0, 0.3);
+    color: #f1f1f1;
+    font-weight: bold;
+}
+
+td input[type="text"] {
+    width: 50px;
+    text-align: center;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border: none;
+    color: #fff;
+}
+
+#titulos h4, #totales h4 {
+    font-size: 1rem;
+    color: #f1f1f1;
+    animation: horizontalMove 2s ease-in-out infinite;
+}
+
+.col-6 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo y alineación de los botones +, - y el input en línea */
+td div.alinear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Espacio entre los elementos */
+}
+
+td button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #0093E9, #80D0C7);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+td button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(145deg, #80D0C7, #0093E9);
+}
+
+.fondo {
+    background-color: rgba(0, 128, 128, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+/* Keyframes para animaciones adicionales */
+
+/* Fondo de la página animado */
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Entrada deslizante desde la izquierda */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Desvanecimiento y escala */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Entrada desde abajo */
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sacudida sutil para los botones */
+@keyframes buttonBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+

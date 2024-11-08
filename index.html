@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/estilos.css" />
+    <script src="./js/Vue3.js"></script>
+    <title>AGENDA TELEFÓNICA</title>
+</head>
+<body>
+    <header>
+		<h1>AGENDA TELEFÓNICA</h1>
+    </header>
+    
+    <section id="seccion">
+      <fieldset class="col-6">
+        <legend>Nuevo Contacto</legend>
+        Contact Name: 
+        <input type="text" v-model="newName">
+        Phone:
+        <input type="text" v-model="newPhone">
+        Type:
+        <select v-model="newType">
+          <option>Family</option>
+          <option>Job</option>
+          <option>School</option>
+          <option>Friend</option>
+        </select>
+        <button @click="add()">ADD</button>
+      </fieldset>
+
+      <article>
+        <table>
+          <tr>
+            <th colspan="1">Contacts:</th>
+            <th colspan="1">Name:</th>
+            <th colspan="1">Phone:</th>
+            <th colspan="1">Type:</th>
+            <th colspan="1">Messajes:</th>
+            <th colspan="1">Calls:</th>
+          </tr>
+          <tr v-for="(contact, index) in contacts" :class="{fondo:contact.mss}">
+            <td>
+              <button @click="borrar(index)">🗑️</button>
+            </td>
+            <td>{{contact.name}}</td>
+            <td>{{contact.phone}}</td>
+            <td>{{contact.type}}</td>
+            <td>
+              <div class="alinear">
+                <button :disabled="contact.mss == 25" @click="contact.mss++">+</button>
+                <input type="text" v-model.number="contact.mss">
+                <button :disabled="contact.mss==0" @click="contact.mss--">-</button>
+              </div>
+              
+            </td>
+            <td>
+              <button :disabled="contact.calls == 25" @click="contact.calls++">+</button>
+              <input type="text" v-model.number="contact.calls">
+              <button :disabled="contact.calls==0" @click="contact.calls--">-</button>
+            </td>
+            
+            <td v-if="contact.mss> 0"></td>
+          </tr>
+          <tr>
+            <td colspan="3" id="titulos">
+              <h4>Contacts</h4>
+              <h4>Massejes</h4>
+              <h4>Calls</h4>
+            </td>
+            <td id="totales">
+              <h4>{{totalContacts}}</h4>
+              <h4>{{totalMss}}</h4>
+              <h4>{{totalCalls}}</h4>
+              
+            </td>
+          </tr>  
+        </table>
+      </article>
+      <!--Segunda parte2 !-->
+      
+        
+    </section>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
+
